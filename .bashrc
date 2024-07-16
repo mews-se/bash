@@ -373,45 +373,15 @@ distribution () {
     if [ -r /etc/os-release ]; then
         source /etc/os-release
         case $ID in
-            fedora|rhel|centos)
-                dtype="redhat"
-                ;;
-            sles|opensuse*)
-                dtype="suse"
-                ;;
             ubuntu|debian)
                 dtype="debian"
-                ;;
-            gentoo)
-                dtype="gentoo"
-                ;;
-            arch|manjaro)
-                dtype="arch"
-                ;;
-            slackware)
-                dtype="slackware"
                 ;;
             *)
                 # Check ID_LIKE only if dtype is still unknown
                 if [ -n "$ID_LIKE" ]; then
                     case $ID_LIKE in
-                        *fedora*|*rhel*|*centos*)
-                            dtype="redhat"
-                            ;;
-                        *sles*|*opensuse*)
-                            dtype="suse"
-                            ;;
                         *ubuntu*|*debian*)
                             dtype="debian"
-                            ;;
-                        *gentoo*)
-                            dtype="gentoo"
-                            ;;
-                        *arch*)
-                            dtype="arch"
-                            ;;
-                        *slackware*)
-                            dtype="slackware"
                             ;;
                     esac
                 fi
@@ -430,28 +400,8 @@ ver() {
     dtype=$(distribution)
 
     case $dtype in
-        "redhat")
-            if [ -s /etc/redhat-release ]; then
-                cat /etc/redhat-release
-            else
-                cat /etc/issue
-            fi
-            uname -a
-            ;;
-        "suse")
-            cat /etc/SuSE-release
-            ;;
         "debian")
             lsb_release -a
-            ;;
-        "gentoo")
-            cat /etc/gentoo-release
-            ;;
-        "arch")
-            cat /etc/os-release
-            ;;
-        "slackware")
-            cat /etc/slackware-version
             ;;
         *)
             if [ -s /etc/issue ]; then
@@ -470,12 +420,6 @@ install_bashrc_support() {
 	dtype=$(distribution)
 
 	case $dtype in
-		"redhat")
-			sudo yum install multitail tree zoxide trash-cli bash-completion fastfetch
-			;;
-		"suse")
-			sudo zypper install multitail tree zoxide trash-cli bash-completion fastfetch
-			;;
 		"debian")
 			sudo apt-get install multitail tree zoxide bash-completion
 			# Fetch the latest fastfetch release URL for linux-amd64 deb file
@@ -486,12 +430,6 @@ install_bashrc_support() {
 
 			# Install the downloaded deb file using apt-get
 			sudo apt-get install /tmp/fastfetch_latest_amd64.deb
-			;;
-		"arch")
-			sudo paru multitail tree zoxide trash-cli bash-completion fastfetch
-			;;
-		"slackware")
-			echo "No install support for Slackware"
 			;;
 		*)
 			echo "Unknown distribution"
