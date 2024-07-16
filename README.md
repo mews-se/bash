@@ -4,8 +4,8 @@ The `.bashrc` file is a script that runs every time a new terminal session is st
 
 ## How to install
 ```
-git clone --depth=1 https://github.com/mews-se/mybash.git
-cd mybash
+git clone --depth=1 https://github.com/mews-se/bash.git
+cd bash
 chmod +x setup.sh
 ./setup.sh
 ```
