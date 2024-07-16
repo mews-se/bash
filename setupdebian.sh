@@ -60,12 +60,6 @@ checkEnv() {
         echo "${RED}Can't write to $GITPATH${RC}"
         exit 1
     fi
-
-    ## Check if member of the sudo group.
-    if ! groups | grep -q "$SUGROUP"; then
-        echo "${RED}You need to be a member of the sudo group to run me!${RC}"
-        exit 1
-    fi
 }
 
 # Check to see if the FiraCode Nerd Font is installed (Change this to whatever font you would like)
