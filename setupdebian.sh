@@ -82,7 +82,7 @@ else
     echo "'$FONT_NAME' installed successfully."
 fi
 
-installStarshipAndFzf() {
+installStarship() {
     if command_exists starship; then
         echo "Starship already installed"
         return
@@ -91,12 +91,6 @@ installStarshipAndFzf() {
     if ! curl -sS https://starship.rs/install.sh | sh; then
         echo "${RED}Something went wrong during starship install!${RC}"
         exit 1
-    fi
-    if command_exists fzf; then
-        echo "Fzf already installed"
-    else
-        git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-        ~/.fzf/install
     fi
 }
 
@@ -154,7 +148,7 @@ linkConfig() {
 }
 
 checkEnv
-installStarshipAndFzf
+installStarship
 installZoxide
 create_fastfetch_config
 
