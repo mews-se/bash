@@ -6,8 +6,7 @@ YELLOW='\033[33m'
 GREEN='\033[32m'
 
 # Install required packages using apt (for Debian-based distros)
-sudo apt update
-sudo apt install -y bash bash-completion tar bat tree multitail wget unzip fontconfig curl git
+sudo apt update && sudo apt install -y bash bash-completion tar bat tree multitail wget unzip fontconfig curl git lsb-release
 
 # Check if the home directory and linuxtoolbox folder exist, create them if they don't
 LINUXTOOLBOXDIR="$HOME/linuxtoolbox"
