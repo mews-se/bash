@@ -422,7 +422,7 @@ install_bashrc_support() {
 	case $dtype in
 		"debian")
 			sudo apt-get install multitail tree zoxide bash-completion
-			# Fetch the latest fastfetch release URL for linux-amd64 deb file
+			# Fetch the latest fastfetch release URL for linux-aarch64 deb file
 			FASTFETCH_URL=$(curl -s https://api.github.com/repos/fastfetch-cli/fastfetch/releases/latest | grep "browser_download_url.*linux-aarch64.deb" | cut -d '"' -f 4)
 
 			# Download the latest fastfetch deb file
