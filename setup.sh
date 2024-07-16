@@ -18,14 +18,14 @@ if [ ! -d "$LINUXTOOLBOXDIR" ]; then
     echo "${GREEN}linuxtoolbox directory created: $LINUXTOOLBOXDIR${RC}"
 fi
 
-if [ -d "$LINUXTOOLBOXDIR/mybash" ]; then rm -rf "$LINUXTOOLBOXDIR/mybash"; fi
+if [ -d "$LINUXTOOLBOXDIR/bash" ]; then rm -rf "$LINUXTOOLBOXDIR/bash"; fi
 
-echo "${YELLOW}Cloning mybash repository into: $LINUXTOOLBOXDIR/mybash${RC}"
-git clone https://github.com/mews-se/mybash "$LINUXTOOLBOXDIR/mybash"
+echo "${YELLOW}Cloning mybash repository into: $LINUXTOOLBOXDIR/bash${RC}"
+git clone https://github.com/mews-se/bash "$LINUXTOOLBOXDIR/bash"
 if [ $? -eq 0 ]; then
-    echo "${GREEN}Successfully cloned mybash repository${RC}"
+    echo "${GREEN}Successfully cloned bash repository${RC}"
 else
-    echo "${RED}Failed to clone mybash repository${RC}"
+    echo "${RED}Failed to clone bash repository${RC}"
     exit 1
 fi
 
@@ -33,9 +33,9 @@ fi
 PACKAGER="apt"
 SUDO_CMD="sudo"
 SUGROUP="sudo"
-GITPATH=""
+GITPATH="git"
 
-cd "$LINUXTOOLBOXDIR/mybash" || exit
+cd "$LINUXTOOLBOXDIR/bash" || exit
 
 command_exists() {
     command -v "$1" >/dev/null 2>&1
