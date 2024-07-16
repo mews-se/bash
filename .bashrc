@@ -471,10 +471,10 @@ install_bashrc_support() {
 
 	case $dtype in
 		"redhat")
-			sudo yum install multitail tree zoxide trash-cli fzf bash-completion fastfetch
+			sudo yum install multitail tree zoxide trash-cli bash-completion fastfetch
 			;;
 		"suse")
-			sudo zypper install multitail tree zoxide trash-cli fzf bash-completion fastfetch
+			sudo zypper install multitail tree zoxide trash-cli bash-completion fastfetch
 			;;
 		"debian")
 			sudo apt-get install multitail tree zoxide bash-completion
@@ -488,7 +488,7 @@ install_bashrc_support() {
 			sudo apt-get install /tmp/fastfetch_latest_amd64.deb
 			;;
 		"arch")
-			sudo paru multitail tree zoxide trash-cli fzf bash-completion fastfetch
+			sudo paru multitail tree zoxide trash-cli bash-completion fastfetch
 			;;
 		"slackware")
 			echo "No install support for Slackware"
